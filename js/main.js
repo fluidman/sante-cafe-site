@@ -341,7 +341,7 @@
 	// Initialize datepicker
 	$('.appointment_date').datepicker({
 	  'format': 'm/d/yyyy',
-	  'autoclose': true
+	  'autoclose': true;
 	  daysOfWeekDisabled: [6] // 0 = Sunday, 6 = Saturday
 	});
 
