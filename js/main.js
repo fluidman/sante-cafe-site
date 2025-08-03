@@ -289,9 +289,63 @@
 	  'autoclose': true
 	});
 
-	$('.appointment_time').timepicker();
+	function updateTimepickerLimits() {
+	  const dateStr = $('.appointment_date').val();
+	  const timeInput = $('.appointment_time');
 
+	  if (!dateStr) return;
 
+	  const date = new Date(dateStr);
+	  const day = date.getDay(); // Sunday = 0, Monday = 1, ..., Saturday = 6
+
+	  // Base settings
+	  let minTime = '07:00';
+	  let maxTime;
+	  let isClosed = false;
+
+	  switch (day) {
+		case 0: // Sunday
+		  maxTime = '14:00';
+		  break;
+		case 5: // Friday
+		  maxTime = '15:00';
+		  break;
+		case 6: // Saturday
+		  isClosed = true;
+		  break;
+		default: // Monday to Thursday
+		  maxTime = '17:00';
+	  }
+
+	  if (isClosed) {
+		timeInput.timepicker('remove');
+		timeInput.val('Am Samstag geschlossen');
+		timeInput.prop('disabled', true);
+	  } else {
+		timeInput.prop('disabled', false);
+		timeInput.val('');
+		timeInput.timepicker('remove');
+		timeInput.timepicker({
+		  timeFormat: 'H:i',
+		  interval: 30,
+		  minTime: minTime,
+		  maxTime: maxTime,
+		  startTime: minTime,
+		  dynamic: false,
+		  dropdown: true,
+		  scrollbar: true
+		});
+	  }
+	}
+
+	// Initialize datepicker
+	$('.appointment_date').datepicker({
+	  'format': 'm/d/yyyy',
+	  'autoclose': true
+	});
+
+	// Update timepicker when a date is selected
+	$('.appointment_date').on('change', updateTimepickerLimits);
 
 
 })(jQuery);
