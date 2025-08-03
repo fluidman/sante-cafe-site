@@ -305,21 +305,21 @@
 
 	  switch (day) {
 		case 0: // Sunday
-		  maxTime = '14:00';
+		  maxTime = '13:30';
 		  break;
 		case 5: // Friday
-		  maxTime = '15:00';
+		  maxTime = '14:30';
 		  break;
 		case 6: // Saturday
 		  isClosed = true;
 		  break;
 		default: // Monday to Thursday
-		  maxTime = '17:00';
+		  maxTime = '16:30';
 	  }
 
 	  if (isClosed) {
 		timeInput.timepicker('remove');
-		timeInput.val('Am Samstag geschlossen');
+		timeInput.val('Samstags geschlossen');
 		timeInput.prop('disabled', true);
 	  } else {
 		timeInput.prop('disabled', false);
@@ -342,6 +342,7 @@
 	$('.appointment_date').datepicker({
 	  'format': 'm/d/yyyy',
 	  'autoclose': true
+	  daysOfWeekDisabled: [6] // 0 = Sunday, 6 = Saturday
 	});
 
 	// Update timepicker when a date is selected
