@@ -1,5 +1,5 @@
 function init() {
-  var myLatlng = new google.maps.LatLng(47.7453348,8.9620607); // Santé Café Standort
+  var myLatlng = new google.maps.LatLng(47.7448613611424, 8.963462191394122); // Santé Café Standort
 
   var mapOptions = {
     zoom: 17,
@@ -22,12 +22,12 @@ function init() {
       {
         featureType: 'poi.park',
         elementType: 'geometry',
-        stylers: [{ color: '#263c3f' }]
+        stylers: [{ visibility: "off" }]
       },
       {
         featureType: 'poi.park',
         elementType: 'labels.text.fill',
-        stylers: [{ color: '#6b9a76' }]
+        stylers: [{ visibility: "off" }]
       },
       {
         featureType: 'road',
