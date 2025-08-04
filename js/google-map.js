@@ -16,7 +16,6 @@ function init() {
       },
       {
         featureType: 'poi',
-        elementType: 'labels.text.fill',
         stylers: [{ visibility: "off" }]
       },
       {
