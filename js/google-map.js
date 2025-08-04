@@ -1,12 +1,12 @@
 function init() {
-  var myLatlng = new google.maps.LatLng(47.74554, 8.9659135); // Santé Café Radolfzell
+  var myLatlng = new google.maps.LatLng(47.74554, 8.9659135); // Santé Café Standort
 
   var mapOptions = {
     zoom: 17,
     center: myLatlng,
     scrollwheel: true,
     styles: [
-      { featureType: "poi", stylers: [{ visibility: "off" }] },
+      { featureType: "poi", stylers: [{ visibility: "off" }] }, // Alle POIs (z.B. Rewe) ausblenden
       { featureType: "transit", stylers: [{ visibility: "off" }] },
       { elementType: "geometry", stylers: [{ color: "#ebe3cd" }] },
       { elementType: "labels.text.fill", stylers: [{ color: "#523735" }] },
@@ -25,18 +25,17 @@ function init() {
   var marker = new google.maps.Marker({
     position: myLatlng,
     map: map,
-    icon: 'images/loc.png', // eigenes Marker-Icon
+    icon: 'images/loc.png', // Dein eigenes Marker-Icon
     title: 'Santé Café'
   });
 
   var infoWindow = new google.maps.InfoWindow({
-    content: "<strong>Santé Café</strong><br>Haselbrunnstraße 48<br>Radolfzell"
+    content: "<strong>Santé Café</strong><br>Haselbrunnstraße 48<br>78315 Radolfzell"
   });
 
-  infoWindow.open(map, marker); // zeigt das Label dauerhaft an
+  infoWindow.open(map, marker); // Label dauerhaft geöffnet anzeigen
 
-  // Optional: Klick öffnet das Infofenster erneut, falls es geschlossen wurde
   marker.addListener("click", function () {
-    infoWindow.open(map, marker);
+    infoWindow.open(map, marker); // Reaktiviert Infofenster bei Klick
   });
 }
