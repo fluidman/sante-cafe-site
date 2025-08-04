@@ -9305,3 +9305,8 @@ select.form-control option {
 .gm-style-iw + div > img {
   display: none !important;
 }
+
+.owl-carousel {
+  touch-action: pan-y !important;
+  overscroll-behavior: contain;
+}
