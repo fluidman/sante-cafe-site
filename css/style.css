@@ -9306,7 +9306,8 @@ select.form-control option {
   display: none !important;
 }
 
-.owl-carousel {
+.owl-carousel, .owl-stage, .owl-item {
   touch-action: pan-y !important;
-  overscroll-behavior: contain;
+  overscroll-behavior: contain !important;
+  -ms-touch-action: pan-y !important;
 }
