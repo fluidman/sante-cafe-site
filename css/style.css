@@ -9298,3 +9298,10 @@ select.form-control option {
   font-family: inherit;
   font-size: 14px;
 }
+.gm-style-iw-d {
+  padding-right: 0 !important;
+}
+
+.gm-style-iw + div > img {
+  display: none !important;
+}
