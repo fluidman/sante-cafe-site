@@ -39,3 +39,6 @@ function init() {
     infoWindow.open(map, marker); // Reaktiviert Infofenster bei Klick
   });
 }
+
+
+window.init = init;
