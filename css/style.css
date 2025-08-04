@@ -9293,3 +9293,8 @@ select.form-control option {
   background-color: #fff;
   color: #000;
 }
+.gm-style-iw {
+  padding: 5px 10px !important;
+  font-family: inherit;
+  font-size: 14px;
+}
